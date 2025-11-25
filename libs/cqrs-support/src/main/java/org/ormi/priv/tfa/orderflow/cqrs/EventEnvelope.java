@@ -4,7 +4,22 @@ import java.time.Instant;
 import java.util.UUID;
 
 /**
- * TODO: Complete Javadoc
+ * Conteneur immuable d'un événement de domaine enrichi de métadonnées.
+ *
+ * <p>L'<code>EventEnvelope</code> encapsule un {@link DomainEvent} avec :
+ * - une <b>séquence</b> (typiquement la version/sequence d'agrégat) utilisée pour
+ *   ordonner les événements ;
+ * - un <b>timestamp</b> d'occurrence généré lors de la construction de l'enveloppe ;
+ * - des accesseurs pratiques vers l'<i>aggregateId</i> et l'<i>aggregateType</i>.
+ *
+ * <p>Usage typique : le Kernel produit une instance via {@link #with(DomainEvent, Long)}
+ * après avoir appliqué une transition d'état, puis la persiste dans l'Event Log
+ * et la publie aux consommateurs/projections.
+ *
+ * <p>Garantit l'immuabilité des métadonnées et simplifie la sérialisation/transmission
+ * des événements dans l'infrastructure CQRS.
+ *
+ * todo doc OK
  */
 
 public class EventEnvelope<E extends DomainEvent> {

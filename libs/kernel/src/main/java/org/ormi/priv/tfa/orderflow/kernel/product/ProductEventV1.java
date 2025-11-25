@@ -6,7 +6,27 @@ import org.ormi.priv.tfa.orderflow.cqrs.DomainEvent;
 import org.ormi.priv.tfa.orderflow.kernel.Product;
 
 /**
- * TODO: Complete Javadoc
+ * Définition versionnée des événements métier liés à l'agrégat {@link org.ormi.priv.tfa.orderflow.kernel.Product}.
+ *
+ * <p>Cette interface scellée regroupe les événements de la version 1 du
+ * modèle d'événements produits par l'agrégat Product :
+ * - {@code ProductRegistered} : produit initialement enregistré,
+ * - {@code ProductRetired} : produit retiré,
+ * - {@code ProductNameUpdated} / {@code ProductDescriptionUpdated} : mises à jour
+ *   de données descriptives.
+ *
+ * <p>Chaque événement expose :
+ * - un identifiant d'agrégat via {@link #productId()} ;
+ * - une charge utile typée (payload) implémentant {@link ProductEventV1Payload} ;
+ * - la méthode {@link #version()} renvoie la constante {@link #EVENT_VERSION} afin
+ *   d'indiquer la version du schéma d'événement.
+ *
+ * <p>Règles et usages :
+ * - Les événements sont immuables une fois construits.
+ * - {@link #aggregateType()} retourne le nom de l'agrégat (Product), utilisé
+ *   pour l'indexation et le routage des événements.
+ *
+ * todo doc OK
  */
 
 public sealed interface ProductEventV1 extends DomainEvent {

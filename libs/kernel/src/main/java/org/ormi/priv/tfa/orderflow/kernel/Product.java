@@ -16,7 +16,28 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 /**
- * TODO: Complete Javadoc
+ * Représente l'agrégat métier "Product" (produit) du domaine Order Flow.
+ *
+ * <p>Cette classe encapsule l'état et les règles métier d'un produit :
+ * - Identifiant immuable (`ProductId`).
+ * - Nom et description modifiables sous conditions métier.
+ * - Identifiant de SKU associé (`SkuId`).
+ * - Cycle de vie (`ProductLifecycle`) et numéro de version.
+ *
+ * <p>Responsabilités principales :
+ * - Appliquer les transitions d'état (mise à jour du nom, description, retrait).
+ * - Valider les invariants via Jakarta Validation avant d'émettre un événement.
+ * - Produire des {@link org.ormi.priv.tfa.orderflow.cqrs.EventEnvelope} contenant
+ *   l'événement métier correspondant et la nouvelle version de l'agrégat.
+ *
+ * <p>Garanties et comportements importants :
+ * - Les méthodes d'état lancent {@link IllegalStateException} si la transition
+ *   n'est pas autorisée (par exemple modifier un produit retiré).
+ * - Les violations de contraintes déclenchent {@link jakarta.validation.ConstraintViolationException}.
+ * - La version interne est incrémentée à chaque changement d'état et est
+ *   incluse comme séquence dans l'enveloppe d'événement.
+ *
+ * todo doc OK
  */
 
 @Getter

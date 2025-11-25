@@ -21,7 +21,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * TODO: Complete Javadoc
+ * Entité JPA représentant la table d'event-log (source de vérité immuable
+ * des événements de domaine).
+ *
+ * <p>Chaque enregistrement correspond à un événement produit par un agrégat :
+ * - <b>aggregateType</b> et <b>aggregateId</b> identifient l'agrégat cible ;
+ * - <b>aggregateVersion</b> représente la version/sequence de l'agrégat au
+ *   moment de l'événement ;
+ * - <b>eventType</b> et <b>eventVersion</b> identifient le type et la version de
+ *   schéma de l'événement ;
+ * - <b>payload</b> contient la charge utile sérialisée en JSONB ;
+ * - <b>occurredAt</b> est la date/heure d'occurrence.
+ *
+ * <p>Conventions importantes : les colonnes sont déclarées <code>updatable = false</code>
+ * afin d'assurer l'immuabilité historique des événements. Un index sur
+ * (aggregate_type, aggregate_id, aggregate_version) permet des recherches
+ * efficaces par agrégat et version.
+ *
+ * <p>À terme, cette entité peut être enrichie avec des informations d'observabilité
+ * (correlation, causation, tenant, shardKey) pour faciliter le traçage et le
+ * partitionnement.
+ *
+ * todo doc OK
  */
 
 @Getter

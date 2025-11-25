@@ -16,7 +16,20 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 /**
- * TODO: Complete Javadoc
+ * Vue matérialisée (read model) représentant l'état courant d'un produit.
+ *
+ * <p>La {@code ProductView} est destinée aux opérations de lecture/affichage :
+ * elle contient les données nécessaires au front et aux APIs publiques :
+ * identifiant, version, SKU, nom, description, statut, références de catalogue,
+ * historique d'événements et timestamps de création/mise à jour.
+ *
+ * <p>La classe fournit un {@code Builder} pour construire des instances valides
+ * et applique Jakarta Validation lors du build pour garantir les invariants.
+ * Les sous-types internes {@code ProductViewCatalogRef} et {@code ProductViewEvent}
+ * servent respectivement à référencer des catalogues et à historiser les événements
+ * qui ont conduit à l'état courant.
+ *
+ * todo doc OK
  */
 
 @Getter
