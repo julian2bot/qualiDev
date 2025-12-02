@@ -3,10 +3,16 @@ package org.ormi.priv.tfa.orderflow.productregistry.read.infra.api;
 import jakarta.ws.rs.Path;
 
 /**
- * TODO: Complete Javadoc
+ * Contrôleur REST pour le streaming en temps réel des changements produits.
+ *
+ * <p>Actuellement un squelette (TODO Exercice 5) : sera implémenté pour exposer
+ * des endpoints WebSocket/SSE permettant aux clients de s'abonner aux flux
+ * d'événements produits par agrégat, diffusés via {@link ProductEventBroadcaster}.
+ *
+ * todo doc OK
  */
 
-@Path("/products")
+@Path(\"/products\")
 public class ProductStreamResource {
 
     // TODO: implement [Exercice 5]

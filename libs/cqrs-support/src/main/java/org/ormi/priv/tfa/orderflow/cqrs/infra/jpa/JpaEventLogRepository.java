@@ -12,7 +12,17 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 /**
- * TODO: Complete Javadoc
+ * Implémentation JPA du contrat {@link EventLogRepository}.
+ *
+ * <p>Cette classe persiste les {@link EventEnvelope} dans la table <code>event_log</code>
+ * en utilisant Hibernate/JPA via Panache. Elle :
+ * - utilise {@link EventLogJpaMapper} pour transformer l'enveloppe en entité,
+ * - injecte {@link ObjectMapper} pour la sérialisation JSON du payload,
+ * - applique la transactionnalité via {@code @Transactional}.
+ *
+ * <p>L'entrée est immédiatement persistée et disponible pour les lectures/projections.
+ *
+ * todo doc OK
  */
 
 @ApplicationScoped

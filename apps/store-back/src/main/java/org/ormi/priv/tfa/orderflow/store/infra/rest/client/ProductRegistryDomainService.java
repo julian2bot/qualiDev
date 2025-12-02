@@ -14,12 +14,22 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 
 /**
- * TODO: Complete Javadoc
+ * Client REST (Quarkus Rest Client) pour l'API de commande du Product Registry.
+ *
+ * <p>Expose les opérations d'écriture (CQRS Write) :
+ * - {@code registerProduct()} : créer un nouveau produit,
+ * - {@code retireProduct()} : retirer un produit,
+ * - {@code updateProductName()} / {@code updateProductDescription()} : modifications.
+ *
+ * <p>Configuration via {@code product-registry-api} dans les propriétés Quarkus.
+ * À utiliser par le {@code store-back} pour modifier les produits.
+ *
+ * todo doc OK
  */
 
 @ApplicationScoped
-@Path("/products")
-@RegisterRestClient(configKey = "product-registry-api")
+@Path(\"/products\")
+@RegisterRestClient(configKey = \"product-registry-api\")
 public interface ProductRegistryDomainService {
     
     @POST

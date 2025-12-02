@@ -9,7 +9,19 @@ import org.ormi.priv.tfa.orderflow.kernel.product.ProductEventV1.ProductRegister
 import org.ormi.priv.tfa.orderflow.kernel.product.ProductEventV1.ProductRetired;
 
 /**
- * TODO: Complete Javadoc
+ * Classe abstraite servant d'enveloppe typée pour les événements du domaine Product (v1).
+ *
+ * <p>Elle étend {@link EventEnvelope} et fournit des implémentations concrètes typées
+ * pour chaque type d'événement :
+ * - {@code ProductRegisteredEnvelope},
+ * - {@code ProductRetiredEnvelope},
+ * - {@code ProductNameUpdatedEnvelope},
+ * - {@code ProductDescriptionUpdatedEnvelope}.
+ *
+ * <p>Cette approche en sous-classes permet une comparaison de type sécurisée (pattern matching)
+ * et facilite le traitement spécifique de chaque événement dans les projecteurs.
+ *
+ * todo doc OK
  */
 
 public abstract class ProductEventV1Envelope<E extends ProductEventV1> extends EventEnvelope<E> {

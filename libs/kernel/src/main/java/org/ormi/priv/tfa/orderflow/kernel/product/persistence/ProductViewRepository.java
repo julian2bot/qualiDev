@@ -8,7 +8,18 @@ import org.ormi.priv.tfa.orderflow.kernel.product.SkuId;
 import org.ormi.priv.tfa.orderflow.kernel.product.views.ProductView;
 
 /**
- * TODO: Complete Javadoc
+ * Contrat de persistance pour la vue matérialisée {@link ProductView}.
+ *
+ * <p>Ce port expose les opérations de sauvegarde et recherche des ProductView
+ * utilisées par les APIs de lecture :
+ * - {@code save()} : persiste ou met à jour une vue,
+ * - {@code findById()} / {@code findBySkuId()} : récupération simple,
+ * - {@code countPaginatedViewsBySkuIdPattern()} / {@code searchPaginatedViewsOrderBySkuId()} :
+ *   recherche paginée par pattern de SKU.
+ *
+ * <p>L'implémentation est réalisée dans `infra/jpa/ProductViewJpaRepository`.
+ *
+ * todo doc OK
  */
 
 public interface ProductViewRepository {

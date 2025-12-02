@@ -18,14 +18,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * TODO: Complete Javadoc
+ * Entité JPA représentant une entrée dans la table Outbox.
+ *
+ * <p>L'Outbox garantit la livraison des événements aux consommateurs asynchrones
+ * (projections, événements publiés). Chaque entrée :
+ * - référence un {@code EventLogEntity} source (via {@code sourceEvent}),
+ * - maintient un compteur {@code attempts} pour les tentatives de publication,
+ * - stocke {@code nextAttemptAt} (timestamp pour les retry exponentiels),
+ * - enregistre le {@code lastError} en cas d'échec.
+ *
+ * <p>L'index sur {@code next_attempt_at} permet une récupération efficace
+ * des entrées prêtes à être retraitées. La table est dans le schéma {@code eventing}.
+ *
+ * todo doc OK
  */
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Entity
-@Table(schema = "eventing", name = "outbox", indexes = {
+@Table(schema = \"eventing\", name = \"outbox\", indexes = {
         @Index(name = "ix_outbox_ready", columnList = "next_attempt_at")
 })
 public class OutboxEntity {

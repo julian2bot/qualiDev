@@ -8,7 +8,22 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * TODO: Complete Javadoc
+ * DTO de lecture représentant la vue matérialisée d'un produit pour les APIs externes.
+ *
+ * <p>Encapsule tous les champs du produit visibles au client :
+ * - {@code id}, {@code skuId}, {@code name}, {@code description}, {@code status} : données principales,
+ * - {@code catalogs} : références aux catalogues,
+ * - {@code events} : historique des événements avec payloads typées,
+ * - {@code createdAt}, {@code updatedAt} : timestamps.
+ *
+ * <p>Les types imbriqués :
+ * - {@code ProductViewDtoCatalog} : référence de catalogue,
+ * - {@code ProductViewDtoEvent} : représente un changement survenus,
+ * - {@code ProductViewEventDtoPayload} : interface scellée pour les payloads polymorphes
+ *   (ProductRegisteredPayloadDto, ProductNameUpdatedPayloadDto, etc.),
+ * - {@code ProductViewDtoEventType} : énumération des types d'événements.
+ *
+ * todo doc OK
  */
 
 public record ProductViewDto(

@@ -13,7 +13,19 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * TODO: Complete Javadoc
+ * Mappeur MapStruct responsable de transformer un {@link EventEnvelope}
+ * en {@link EventLogEntity} pour la persistance.
+ *
+ * <p>Ce mappeur extrait les informations pertinentes de l'enveloppe et de l'événement
+ * (type, version, payload) et construit une entité JPA prête à être persistée :
+ * - {@code toEntity()} : transforme l'enveloppe en entité avec mapping des propriétés,
+ * - {@code resolveEventType()} : récupère le type de l'événement,
+ * - {@code resolveEventVersion()} : récupère la version du schéma d'événement,
+ * - {@code toJson()} : sérialise le payload en {@link JsonNode} via {@link ObjectMapper}.
+ *
+ * <p>Utilise MapStruct avec injection CDI pour l'intégration Quarkus.
+ *
+ * todo doc OK
  */
 
 @Mapper(

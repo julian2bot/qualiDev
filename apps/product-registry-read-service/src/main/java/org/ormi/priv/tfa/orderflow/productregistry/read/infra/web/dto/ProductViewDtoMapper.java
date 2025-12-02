@@ -28,10 +28,21 @@ import org.ormi.priv.tfa.orderflow.kernel.product.views.ProductView.ProductViewC
 import org.ormi.priv.tfa.orderflow.kernel.product.views.ProductView.ProductViewEvent;
 
 /**
- * TODO: Complete Javadoc
+ * Hiérarchie de mappeurs MapStruct pour transformer {@link ProductView} en DTOs HTTP.
+ *
+ * <p>Orchestration multi-niveaux :
+ * - {@code ProductViewDtoMapper} : niveau principal, transforme ProductView→ProductViewDto,
+ * - {@code ProductViewDtoEventMapper} : transforme chaque événement,
+ * - {@code ProductViewDtoPayloadMapper} : convertit les payloads typés en DTO,
+ * - {@code ProductEventTypeMapper} : mappe ProductEventType→ProductViewDtoEventType.
+ *
+ * <p>Gère la complexité des payloads d'événements polymorphes via un dispatcher
+ * qui préserve le type spécifique (ProductRegisteredPayload, ProductNameUpdatedPayload, etc.).
+ *
+ * todo doc OK
  */
 
-@Mapper(componentModel = "cdi", builder = @Builder(disableBuilder = false), uses = {
+@Mapper(componentModel = \"cdi\", builder = @Builder(disableBuilder = false), uses = {
         ProductIdMapper.class,
         SkuIdMapper.class,
         ProductViewDtoMapper.ProductViewDtoEventMapper.class,

@@ -15,7 +15,19 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
 /**
- * TODO: Complete Javadoc
+ * Implémentation JPA du contrat {@link OutboxRepository}.
+ *
+ * <p>Gère la persistance du pattern Outbox pour garantir la livraison fiable
+ * des événements aux consommateurs :
+ * - {@code publish()} : persiste une nouvelle entrée Outbox avec état initial,
+ * - {@code fetchReadyByAggregateTypeOrderByAggregateVersion()} : exécute une requête
+ *   SQL native pour récupérer les événements prêts (considérant le timestamp et
+ *   le nombre de tentatives),
+ * - {@code delete()} / {@code markFailed()} : mises à jour pour le suivi du cycle de vie.
+ *
+ * <p>Utilise Panache pour les opérations JPA simplifiées.
+ *
+ * todo doc OK
  */
 
 @ApplicationScoped

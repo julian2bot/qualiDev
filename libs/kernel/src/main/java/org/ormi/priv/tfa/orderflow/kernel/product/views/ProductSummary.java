@@ -12,7 +12,14 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 /**
- * TODO: Complete Javadoc
+ * Vue simplifiée d'un produit, contenant les informations essentielles
+ * pour l'affichage dans des contextes limités (listes, sommaires, etc.).
+ *
+ * <p>Cette classe encapsule un sous-ensemble de champs comparé à {@link ProductView} :
+ * identifiant, SKU, nom, description, statut. Elle est également validée via
+ * Jakarta Validation lors de sa construction.
+ *
+ * todo doc OK
  */
 
 @Getter
