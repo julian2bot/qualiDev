@@ -42,7 +42,7 @@ import org.ormi.priv.tfa.orderflow.kernel.product.views.ProductView.ProductViewE
  * todo doc OK
  */
 
-@Mapper(componentModel = \"cdi\", builder = @Builder(disableBuilder = false), uses = {
+@Mapper(componentModel = "cdi", builder = @Builder(disableBuilder = false), uses = {
         ProductIdMapper.class,
         SkuIdMapper.class,
         ProductViewDtoMapper.ProductViewDtoEventMapper.class,

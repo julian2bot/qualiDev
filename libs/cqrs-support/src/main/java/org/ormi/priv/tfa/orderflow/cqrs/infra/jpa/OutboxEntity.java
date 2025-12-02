@@ -37,7 +37,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Entity
-@Table(schema = \"eventing\", name = \"outbox\", indexes = {
+@Table(schema = "eventing", name = "outbox", indexes = {
         @Index(name = "ix_outbox_ready", columnList = "next_attempt_at")
 })
 public class OutboxEntity {

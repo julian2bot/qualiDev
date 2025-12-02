@@ -43,7 +43,7 @@ import jakarta.ws.rs.core.Response.Status;
  * todo doc OK
  */
 
-@Path(\"/products\")
+@Path("/products")
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductRpcResource {
 

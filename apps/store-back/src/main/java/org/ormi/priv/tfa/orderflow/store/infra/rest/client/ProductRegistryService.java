@@ -25,8 +25,8 @@ import jakarta.ws.rs.QueryParam;
  */
 
 @ApplicationScoped
-@Path(\"/products\")
-@RegisterRestClient(configKey = \"product-registry-read-api\")
+@Path("/products")
+@RegisterRestClient(configKey = "product-registry-read-api")
 public interface ProductRegistryService {
 
     @GET

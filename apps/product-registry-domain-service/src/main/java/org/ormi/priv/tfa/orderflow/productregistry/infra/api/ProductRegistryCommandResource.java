@@ -43,7 +43,7 @@ import jakarta.ws.rs.core.UriInfo;
  * todo doc OK
  */
 
-@Path(\"/products\")
+@Path("/products")
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductRegistryCommandResource {
 

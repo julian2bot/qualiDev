@@ -12,7 +12,7 @@ import jakarta.ws.rs.Path;
  * todo doc OK
  */
 
-@Path(\"/products\")
+@Path("/products")
 public class ProductStreamResource {
 
     // TODO: implement [Exercice 5]

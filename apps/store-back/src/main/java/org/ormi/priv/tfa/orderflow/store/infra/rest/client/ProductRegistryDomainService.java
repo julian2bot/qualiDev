@@ -28,8 +28,8 @@ import jakarta.ws.rs.PathParam;
  */
 
 @ApplicationScoped
-@Path(\"/products\")
-@RegisterRestClient(configKey = \"product-registry-api\")
+@Path("/products")
+@RegisterRestClient(configKey = "product-registry-api")
 public interface ProductRegistryDomainService {
     
     @POST
