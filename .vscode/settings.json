@@ -3,7 +3,11 @@
     "**/target": true
   },
   "github.copilot.enable": {
-    "markdown": true
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "css": false
   },
   "plantuml.render": "PlantUMLServer",
   "plantuml.server": "https://www.plantuml.com/plantuml",
