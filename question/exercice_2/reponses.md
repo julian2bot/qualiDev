@@ -145,6 +145,7 @@ C:\USERS\MARQU\DESKTOP\JULIAN\COURS\SAE\SAE-SOUTENANCE\SAE_PROJET\APP
 (J’aime bien Copilot qui a l’air de voir que le TP n’a pas de sens, donc il me suggère des trucs de fou lol)  
 Exemple : (je fais en sorte que les réponses valent plus le coup que ce qui était attendu à la base, comme les tests unitaires mdr)
 
+![alt text](image-8.png)
 
 ![alt text](image-5.png)
 
@@ -152,7 +153,7 @@ Exemple : (je fais en sorte que les réponses valent plus le coup que ce qui ét
 
 ![alt text](image-7.png)
 
-
+![alt text](image-9.png)
 
 # Tâche 5 : Questions
 
